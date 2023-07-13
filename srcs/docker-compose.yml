@@ -18,7 +18,12 @@ services:
       - inception_network
 
   mariadb:
-    build: ./requirements/mariadb/
+    build:
+      context: requirements/mariadb
+      args:
+        - WORDPRESS_DB_NAME
+        - WORDPRESS_DB_USER
+        - WORDPRESS_DB_PASSWORD
     container_name: mariadb
     image: mariadb
     restart: always
