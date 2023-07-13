@@ -8,9 +8,9 @@ skip-bind-address" >> /etc/mysql/my.cnf
 
 RUN service mariadb start && \
 	mariadb -u root -e \
-	"CREATE DATABASE IF NOT EXISTS wordpress_db; \
-	CREATE USER 'wuser'@'%' identified by 'wpass'; \
-	GRANT ALL ON wordpress_db.* TO 'wuser'@'%' IDENTIFIED BY 'wpass'; \
+	"CREATE DATABASE IF NOT EXISTS $WORDPRESS_DB_NAME; \
+	CREATE USER '$WORDPRESS_DB_USER'@'%' identified by '$WORDPRESS_DB_PASSWORD'; \
+	GRANT ALL ON $WORDPRESS_DB_NAME.* TO '$WORDPRESS_DB_USER'@'%' IDENTIFIED BY '$WORDPRESS_DB_PASSWORD'; \
 	FLUSH PRIVILEGES;" && \
 	service mariadb stop
 

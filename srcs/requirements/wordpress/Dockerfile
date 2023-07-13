@@ -9,7 +9,6 @@ RUN apt update -y && apt upgrade -y && apt install -y \
 	wget \
 	sudo
 
-
 RUN sed -i.default "/^listen\s=.*/c\listen = 0.0.0.0:9000" \
 	/etc/php/[0-9]*.[0-9]*/fpm/pool.d/www.conf
 
