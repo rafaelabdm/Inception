@@ -53,7 +53,8 @@ para isso, usaremos wp-cli.<br>
 <h2>🤓 Ta, mas e agora? </h2>
 <p>
 <b>Minha primeira recomendação:</b> estude sobre Docker, se não teve nenhum contato com ele antes desse projeto vai ficar muito complicado de entender o que está acontecendo. Aqui vai um 
-vídeo que me ajudou muito, sem preguiça, força... tem 3 horas rs [Docker Tutorial for Beginners] (https://www.youtube.com/watch?v=3c-iBn73dDE&list=PLy7NrYWoggjxtN4YbSMYFFdpaxb-fR4zC&ab_channel=TechWorldwithNana "Docker Tutorial for Beginners").
+vídeo que me ajudou muito, sem preguiça, força... tem 3 horas rs. <br>
+[Docker Tutorial for Beginners] (https://www.youtube.com/watch?v=3c-iBn73dDE&list=PLy7NrYWoggjxtN4YbSMYFFdpaxb-fR4zC&ab_channel=TechWorldwithNana "Docker Tutorial for Beginners").
 <br><br>
 Ok, agora já sabemos sobre Docker, para que serve, como é usado e como facilitou muito a vida dos DevOps. Bora montar nosso próprio Docker?<br>
 Eu sinceramente recomendo começar a montar tudo em apenas um container. Principalmente se você nunca tinha mexido com nada parecido com nenhum dos serviços antes (eu mesma). 
@@ -63,10 +64,10 @@ estrutura das pastas geradas.<br>
 
 <h2>💻 PASSO A PASSO (DEBIAN):</h2>
   1. Instalar o Docker na sua máquina;<br>
-  2. Rodar um container base pra começarmos a montá-lo como queremos: <TT> docker run --name mycontainer -p443:443 -p80:80 -dt debian:oldstable </TT>; Isso vai procurar a imagem 
-  "debian:oldstable" do DockerHub, baixar e subir um container com Debian rodando e com as portas 443 e 80 expostas pra nossa máquina local.<br>
-  3. Entrar no container: <TT> docker exec -it mycontainer /bin/bash </TT>; Agora você está dentro do container. Qualquer alteração e instalação será feita no container e não na 
-  sua máquina local.<br>
+  2. Rodar um container base pra começarmos a montá-lo como queremos: <TT> docker run --name mycontainer -p443:443 -p80:80 -dt debian:oldstable </TT>; <br>
+  Isso vai procurar a imagem "debian:oldstable" do DockerHub, baixar e subir um container com Debian rodando e com as portas 443 e 80 expostas pra nossa máquina local.<br>
+  3. Entrar no container: <TT> docker exec -it mycontainer /bin/bash </TT>; <br>
+  Agora você está dentro do container. Qualquer alteração e instalação será feita no container e não na sua máquina local.<br>
   4. Dentro do container, vamos instalar o primeiro serviço, NGINX. Porque? Porque é o único que conseguimos ver funcionando de forma muito simples e sem precisar de nenhum requisito 
   anterios. O Wordpress também é facil de visualizar, mas pracisa do MariaDB instalado.<br> 
 
