@@ -2,10 +2,10 @@ FROM debian:oldstable
 
 WORKDIR /var/www/html/
 
-RUN apt update -y && apt upgrade -y && apt install -y \
+RUN apt update -y && apt upgrade && apt install -y \
 	php-fpm \
 	php-mysql \
-	mariadb-client -y \
+	mariadb-client \
 	wget \
 	sudo
 
@@ -20,4 +20,4 @@ WORKDIR	/var/www/html/wordpress
 
 RUN	mkdir -p /run/php
 
-ENTRYPOINT ["sh", "/tmp/wp_install.sh"]
+CMD ["sh", "/tmp/wp_install.sh"]

@@ -14,6 +14,8 @@ up:
 down:
 	@ sudo docker-compose -f ./srcs/docker-compose.yml down
 
-fclean:
+fclean: down
 	@ docker system prune --all --force --volumes
 	@ docker volume rm mariadb_volume wordpress_volume
+
+.PHONY: all set_host up down fclean
