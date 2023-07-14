@@ -63,14 +63,26 @@ estrutura das pastas geradas.<br>
 </p>
 
 <h2>💻 PASSO A PASSO (DEBIAN):</h2>
-  1. Instalar o Docker na sua máquina;<br>
-  2. Rodar um container base pra começarmos a montá-lo como queremos: <TT> docker run --name mycontainer -p443:443 -p80:80 -dt debian:oldstable </TT>; <br>
-  Isso vai procurar a imagem "debian:oldstable" do DockerHub, baixar e subir um container com Debian rodando e com as portas 443 e 80 expostas pra nossa máquina local.<br>
-  3. Entrar no container: <TT> docker exec -it mycontainer /bin/bash </TT>; <br>
-  Agora você está dentro do container. Qualquer alteração e instalação será feita no container e não na sua máquina local.<br>
-  4. Dentro do container, vamos instalar o primeiro serviço, NGINX. Porque? Porque é o único que conseguimos ver funcionando de forma muito simples e sem precisar de nenhum requisito 
-  anterios. O Wordpress também é facil de visualizar, mas pracisa do MariaDB instalado.<br> 
-
+<details><summary>Instalar o Docker</summary>
+	Esse passo é pra quem vai fazer o projeto na máquina local! Na VM da 42 já tem docker instalado :)<br>
+	[siga os passos da documentação para o seu sistema operacional] (https://docs.docker.com/engine/install/)
+</details>
+<details><summary>Rodar um container base</summary>
+	<TT> docker run --name mycontainer -p443:443 -p80:80 -dt debian:oldstable </TT>;<br>
+	Isso vai procurar a imagem "debian:oldstable" do DockerHub, baixar e subir um container com Debian rodando e com as portas 
+	443 e 80 expostas pra nossa máquina local para podermos testar.
+</details>
+<details><summary>Entrar no container</summary>
+	 <TT> docker exec -it mycontainer /bin/bash </TT>;<br>
+	Agora você está dentro do container. Qualquer alteração e instalação será feita no container e não na sua máquina local.
+</details>
+<details><summary>NGINX</summary>
+	Dentro do container, vamos instalar o primeiro serviço, NGINX.<br>
+	<b>Porquê?</b><br>
+		- Por que é o único que conseguimos ver funcionando de forma muito simples e sem precisar de nenhum requisito anterior. 
+		O Wordpress também é facil de visualizar, mas pracisa do MariaDB instalado.
+</details>
+ 
 
 
 
