@@ -17,5 +17,6 @@ down:
 fclean: down
 	@ docker system prune --all --force --volumes
 	@ docker volume rm mariadb_volume wordpress_volume
+	@ sudo rm -fr /home/rabustam/data
 
 .PHONY: all set_host up down fclean
