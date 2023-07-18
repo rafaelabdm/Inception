@@ -30,7 +30,7 @@ REGRAS GERAIS<br>
   • Chamar os Dockerfiles através do docker-compose.yml que, por sua vez, é chamado pelo Makefile;<br>
   • Nenhuma credencial deve estar exposta fora do arquivo .env!!!!!!!!!!!!<br>
   <br>
-REGRAS INFRAESTRUTURA:<br>
+REGRAS INFRAESTRUTURA<br>
   • Um container com NGINX usando apenas o protocolo TLSv1.2 ou TLSv1.3;<br>
   • Um container com WordPress + php-fpm, sem NGINX;<br>
   • Um container com MariaDB, sem NGINX;<br>
@@ -50,40 +50,34 @@ para isso, usaremos wp-cli.<br>
 🔒<b> NGINX:</b> Nosso servidor de HTTP e proxy. Vai ser nossa porta de entrada para a infraestrutura que estamos criando. Ele vai lidar com o protocolo de acesso ao nosso site. <br>
 </p>
 
-<h2>🤓 Ta, mas e agora? </h2>
+<h2>💻 Como usar</h2>
 <p>
-<b>Minha primeira recomendação:</b> estude sobre Docker, se não teve nenhum contato com ele antes desse projeto vai ficar muito complicado de entender o que está acontecendo. Aqui vai um 
-vídeo que me ajudou muito, sem preguiça, força... tem 3 horas rs. <br>
-[Docker Tutorial for Beginners] (https://www.youtube.com/watch?v=3c-iBn73dDE&list=PLy7NrYWoggjxtN4YbSMYFFdpaxb-fR4zC&ab_channel=TechWorldwithNana "Docker Tutorial for Beginners").
-<br><br>
-Ok, agora já sabemos sobre Docker, para que serve, como é usado e como facilitou muito a vida dos DevOps. Bora montar nosso próprio Docker?<br>
-Eu sinceramente recomendo começar a montar tudo em apenas um container. Principalmente se você nunca tinha mexido com nada parecido com nenhum dos serviços antes (eu mesma). 
-Assim podemos ver quais arquivos são gerados quando instalamos algum serviço, onde podemos mexer para conseguir configurar alguma coisa que precisamos e conseguir ver as 
-estrutura das pastas geradas.<br>
+Em um computador com Docker instalado, crie um arquivo .env dentro da pasta srcs e dar make! <br>
+Pronto, você deve ter um site Wordpress rodando no seu <a href="https://localhost:443">localhost:443</a>. Acesse seu navegador e teste o projeto 😉. <br>
+<br>
+No arquivo <TT>.env</TT> criado, modifique o nome dessas variáveis que deve tudo rodar normalmente:
 </p>
 
-<h2>💻 PASSO A PASSO (DEBIAN):</h2>
-<details><summary>Instalar o Docker</summary>
-	Esse passo é pra quem vai fazer o projeto na máquina local! Na VM da 42 já tem docker instalado :)<br>
-	[siga os passos da documentação para o seu sistema operacional] (https://docs.docker.com/engine/install/)
-</details>
-<details><summary>Rodar um container base</summary>
-	<TT> docker run --name mycontainer -p443:443 -p80:80 -dt debian:oldstable </TT>;<br>
-	Isso vai procurar a imagem "debian:oldstable" do DockerHub, baixar e subir um container com Debian rodando e com as portas 
-	443 e 80 expostas pra nossa máquina local para podermos testar.
-</details>
-<details><summary>Entrar no container</summary>
-	 <TT> docker exec -it mycontainer /bin/bash </TT>;<br>
-	Agora você está dentro do container. Qualquer alteração e instalação será feita no container e não na sua máquina local.
-</details>
-<details><summary>NGINX</summary>
-	Dentro do container, vamos instalar o primeiro serviço, NGINX.<br>
-	<b>Porquê?</b><br>
-		- Por que é o único que conseguimos ver funcionando de forma muito simples e sem precisar de nenhum requisito anterior. 
-		O Wordpress também é facil de visualizar, mas pracisa do MariaDB instalado.
-</details>
- 
+```
+# MariaDB Access
+WORDPRESS_DB_HOST=XXXXXXX
+WORDPRESS_DB_NAME=XXXXXXX
+WORDPRESS_DB_USER=XXXXXXX
+WORDPRESS_DB_PASSWORD=XXXXXXX
 
+# Wordpress Access
+WORDPRESS_URL=XXXXXXX
+WORDPRESS_ADMIN_USER=XXXXXXX
+WORDPRESS_ADMIN_PASSWORD=XXXXXXX
+WORDPRESS_ADMIN_EMAIL=XXXXXXX@XXXXXXX
 
+WORDPRESS_GUEST_USER=XXXXXXX
+WORDPRESS_GUEST_PASSWORD=XXXXXXX
+WORDPRESS_GUEST_EMAIL=XXXXXXX@XXXXXXX
+
+# Certs
+CERTS_=/etc/ssl/certs/XXXXXXX.crt
+CERTS_KEY=/etc/ssl/private/XXXXXXX.key
+```
 
 
