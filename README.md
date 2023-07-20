@@ -59,7 +59,7 @@ No arquivo <TT>.env</TT> criado, modifique o nome dessas variáveis que deve tud
 
 ```
 # MariaDB Access
-WORDPRESS_DB_HOST=XXXXXXX
+WORDPRESS_DB_HOST=XXXXXXX #Aqui precisa ser necessariamente "mariadb"
 WORDPRESS_DB_NAME=XXXXXXX
 WORDPRESS_DB_USER=XXXXXXX
 WORDPRESS_DB_PASSWORD=XXXXXXX
