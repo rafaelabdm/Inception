@@ -51,7 +51,7 @@ para isso, usaremos wp-cli.<br>
 
 <h2>💻 Como usar</h2>
 <p>
-Em um computador com Docker instalado, crie um arquivo .env dentro da pasta srcs e dar make! <br>
+Em um computador com Docker instalado, crie um arquivo .env dentro da pasta srcs e dê make! <br>
 Pronto, você deve ter um site Wordpress rodando no seu <a href="https://localhost:443">localhost:443</a>. Acesse seu navegador e teste o projeto 😉. <br>
 <br>
 No arquivo <TT>.env</TT> criado, modifique o nome dessas variáveis que deve tudo rodar normalmente:
